@@ -6,7 +6,7 @@
   - 회원 가입
   - 로그인
   - 회원 정보 조회
-  - 회원 정보 수정e
+  - 회원 정보 수정
   - 회원 탈퇴
   
     
@@ -40,3 +40,8 @@
   - 리뷰 수정
   - 식당 별 리뷰 조회
   - 회원 별 작성 리뷰 조회
+  
+
+### 📌 ERD
+❕이미지 클릭 시 ERD로 이동
+[![dbdiagram](C:\Users\alwls\Downloads\DeliveryApp.png)](https://dbdiagram.io/d/DeliveryApp-65a61908ac844320aefed754)
