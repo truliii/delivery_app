@@ -1,31 +1,22 @@
 package Food;
 
+import java.util.UUID;
+
 public class Food {
+    private String id;
     private String name;
     private int price;
     private String description;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Food (String name, int price, String description) {
+        this.id = this.createId();
         this.name = name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
         this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
+    }
+
+    private String createId(){
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 }
