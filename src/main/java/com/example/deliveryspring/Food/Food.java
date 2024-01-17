@@ -1,4 +1,4 @@
-package Food;
+package com.example.deliveryspring.Food;
 
 import java.util.UUID;
 
@@ -18,5 +18,21 @@ public class Food {
     private String createId(){
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

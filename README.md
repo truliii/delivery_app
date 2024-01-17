@@ -43,5 +43,24 @@
   
 
 ### 📌 ERD
-❕이미지 클릭 시 ERD로 이동
-[![dbdiagram](C:\Users\alwls\Downloads\DeliveryApp.png)](https://dbdiagram.io/d/DeliveryApp-65a61908ac844320aefed754)
+[dbdiagram](https://dbdiagram.io/d/DeliveryApp-65a61908ac844320aefed754)  (❕클릭 시 ERD로 이동)
+
+### 📌 REST API 설계
+|CRUD|HTTP|URI|
+|-----|-----|-----|
+|단일 음식 조회|GET|/foods/{id}|
+|단일 음식 등록|POST|/foods|
+  
+
+### 📌 트러블슈팅
+<details>
+  <summary>@RequestBody, @ResponseBody 사용 불가</summary>
+  spring프로젝트 생성 시 spring web dependency를 추가하지 않아 발생한 문제로 build.gradle에서 spring-starter-web으로 dependency변경
+</details>
+<details>
+  <summary>GET으로 테스트 시 406에러 발생</summary>
+  Food클래스에 getter를 추가하니 해결 → 해당 내용은 추가 공부가 필요
+</details>
+
+  
+
