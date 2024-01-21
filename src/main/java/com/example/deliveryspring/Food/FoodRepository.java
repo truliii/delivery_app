@@ -17,4 +17,16 @@ public class FoodRepository {
     public Food getFood(int idx){
         return db.get(idx);
     }
+
+    public void updateFood(Food food, int idx){
+        db.replace(idx, food);
+    }
+
+    public void deleteFood(int idx){
+        db.remove(idx);
+    }
+
+    public Map<Integer, Food> getAllFood(){
+        return db;
+    }
 }
