@@ -1,38 +1,25 @@
 package com.example.deliveryspring.Food;
 
-import java.util.UUID;
+import jakarta.persistence.*;
+import lombok.Getter;
 
+
+@Entity
+@Getter
 public class Food {
-    private String id;
-    private String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "food_name")
+    private long foodId;
+
+    @Column(name = "food_name", nullable = false, length = 50)
+    private String foodName;
+
+    @Column(nullable = false)
     private int price;
-    private String description;
 
-    public Food (String name, int price, String description) {
-        this.id = this.createId();
-        this.name = name;
-        this.price = price;
-        this.description = description;
-    }
+    @Column(name = "food_description", nullable = false)
+    private String foodDescription;
 
-    private String createId(){
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
 }
