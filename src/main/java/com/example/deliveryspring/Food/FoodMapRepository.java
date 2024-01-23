@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.Map;
 
-@Repository
-public class FoodRepository {
+public class FoodMapRepository {
     private Map<Integer, Food> db = new HashMap<>();
     private int id = 1;
 
