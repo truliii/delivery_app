@@ -3,7 +3,8 @@ package com.example.deliveryspring.Food;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodService {
@@ -14,23 +15,28 @@ public class FoodService {
         this.foodRepository = foodRepository;
     }
 
+    //단일 음식 등록
     public void saveFood(Food food){
-        foodRepository.saveFood(food);
+        foodRepository.save(food);
     }
 
-    public Food findFood(int id){
-        return foodRepository.getFood(id);
+    //단일 음식 조회
+    public Optional<Food> findFood(long id){
+        return foodRepository.findById(id);
     }
 
-    public void updateFood(Food food, int id){
-        foodRepository.updateFood(food, id);
+    //단일 음식 수정
+    public void updateFood(Food food){
+        foodRepository.save(food);
     }
 
-    public void deleteFood(int id){
-        foodRepository.deleteFood(id);
+    //단일 음식 삭제
+    public void deleteFood(long id){
+        foodRepository.deleteById(id);
     }
 
-    public Map<Integer, Food> findAllFood(){
-        return foodRepository.getAllFood();
+    //전체 음식 조회
+    public List<Food> findAllFood(){
+        return foodRepository.findAll();
     }
 }
