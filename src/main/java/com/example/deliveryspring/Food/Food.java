@@ -3,10 +3,12 @@ package com.example.deliveryspring.Food;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
 @Getter //lombok 어노테이션 : 클래스 내 모든 필드의 Getter 메서드 자동 생성
+@Setter
 public class Food {
 
     @Id
