@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Controller
@@ -18,34 +17,34 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    //단일 음식 등록
-    @RequestMapping(value="/foods", method=RequestMethod.POST)
-    public void saveFood(@RequestBody Food food){
-        foodService.saveFood(food);
+    //전체 음식 조회
+    @RequestMapping(value="/foods", method=RequestMethod.GET)
+    public List<FoodDto> findAllFood(){
+        return foodService.findAllFood();
     }
 
     //단일 음식 조회
     @RequestMapping(value="/foods/{id}", method=RequestMethod.GET)
-    public Optional<Food> findFood(@PathVariable("id") long id){
+    public FoodDto findFood(@PathVariable("id") long id){
         return foodService.findFood(id);
+    }
+
+    //단일 음식 등록
+    @RequestMapping(value="/foods", method=RequestMethod.POST)
+    public void saveFood(@RequestBody FoodDto foodDto){
+        foodService.saveFood(foodDto);
     }
 
     //단일 음식 수정
     @RequestMapping(value="/foods", method=RequestMethod.PATCH)
-    public void updateFood(@RequestBody Food food){
-        foodService.updateFood(food);
+    public void updateFood(@RequestBody FoodDto foodDto){
+        foodService.updateFood(foodDto);
     }
 
     //단일 음식 삭제
     @RequestMapping(value="/foods/{id}", method=RequestMethod.DELETE)
     public void deleteFood(@PathVariable("id") long id){
         foodService.deleteFood(id);
-    }
-
-    //전체 음식 조회
-    @RequestMapping(value="/foods", method=RequestMethod.GET)
-    public List<Food> findAllFood(){
-        return foodService.findAllFood();
     }
 
 }
