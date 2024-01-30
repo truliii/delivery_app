@@ -1,14 +1,13 @@
 package com.example.deliveryspring.Food;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 
 @Entity
 @Getter //lombok 어노테이션 : 클래스 내 모든 필드의 Getter 메서드 자동 생성
-@Setter
+@NoArgsConstructor
 public class Food {
 
     @Id
@@ -24,5 +23,13 @@ public class Food {
 
     @Column(nullable = false)
     private String foodDescription;
+
+    @Builder
+    public Food(long foodId, String foodName, int price, String foodDescription){
+        this.foodId = foodId;
+        this.foodName = foodName;
+        this.price = price;
+        this.foodDescription = foodDescription;
+    }
 
 }

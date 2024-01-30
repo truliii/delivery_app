@@ -1,19 +1,24 @@
 package com.example.deliveryspring.Food;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.stereotype.Component;
 
-@Component
 @NoArgsConstructor
 @Getter
-@Setter
-public class FoodDto extends Food{
+public class FoodDto{
 
     private long foodId;
     private String foodName;
     private int price;
     private String foodDescription;
+
+    @Builder
+    public FoodDto(long foodId, String foodName, int price, String foodDescription){
+        this.foodId = foodId;
+        this.foodName = foodName;
+        this.price = price;
+        this.foodDescription = foodDescription;
+    }
 
 }

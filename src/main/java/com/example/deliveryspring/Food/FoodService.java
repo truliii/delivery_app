@@ -1,9 +1,6 @@
 package com.example.deliveryspring.Food;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,8 +19,12 @@ public class FoodService {
     public List<FoodDto> findAllFood(){
         List<FoodDto> foodList = new ArrayList<>();
         for(Food f : foodRepository.findAll()){
-            FoodDto foodDto = new FoodDto();
-            BeanUtils.copyProperties(f, foodDto); //BeanUtils.copyProperties(source, target)
+            FoodDto foodDto = FoodDto.builder()
+                    .foodId(f.getFoodId())
+                    .foodName(f.getFoodName())
+                    .price(f.getPrice())
+                    .foodDescription(f.getFoodDescription())
+                    .build();
             foodList.add(foodDto);
         }
         return foodList;
@@ -32,22 +33,34 @@ public class FoodService {
     //단일 음식 조회
     public FoodDto findFood(long id){
         Food food = foodRepository.findById(id).get();
-        FoodDto foodDto = new FoodDto();
-        BeanUtils.copyProperties(food, foodDto);
+        FoodDto foodDto = FoodDto.builder()
+                .foodId(food.getFoodId())
+                .foodName(food.getFoodName())
+                .price(food.getPrice())
+                .foodDescription(food.getFoodDescription())
+                .build();
         return foodDto;
     }
 
     //단일 음식 등록
     public void saveFood(FoodDto foodDto){
-        Food food = new Food();
-        BeanUtils.copyProperties(foodDto, food);
+        Food food = Food.builder()
+                .foodId(foodDto.getFoodId())
+                .foodName(foodDto.getFoodName())
+                .price(foodDto.getPrice())
+                .foodDescription(foodDto.getFoodDescription())
+                .build();
         foodRepository.save(food);
     }
 
     //단일 음식 수정
     public void updateFood(FoodDto foodDto){
-        Food food = new Food();
-        BeanUtils.copyProperties(foodDto, food);
+        Food food = Food.builder()
+                .foodId(foodDto.getFoodId())
+                .foodName(foodDto.getFoodName())
+                .price(foodDto.getPrice())
+                .foodDescription(foodDto.getFoodDescription())
+                .build();
         foodRepository.save(food);
     }
 
