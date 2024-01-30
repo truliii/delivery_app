@@ -1,38 +1,28 @@
 package com.example.deliveryspring.Food;
 
-import java.util.UUID;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+@Entity
+@Getter //lombok 어노테이션 : 클래스 내 모든 필드의 Getter 메서드 자동 생성
+@Setter
 public class Food {
-    private String id;
-    private String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private long foodId;
+
+    @Column(nullable = false, length = 50)
+    private String foodName;
+
+    @Column(nullable = false)
     private int price;
-    private String description;
 
-    public Food (String name, int price, String description) {
-        this.id = this.createId();
-        this.name = name;
-        this.price = price;
-        this.description = description;
-    }
+    @Column(nullable = false)
+    private String foodDescription;
 
-    private String createId(){
-        UUID uuid = UUID.randomUUID();
-        return uuid.toString();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
 }

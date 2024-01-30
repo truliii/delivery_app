@@ -46,10 +46,13 @@
 [dbdiagram](https://dbdiagram.io/d/DeliveryApp-65a61908ac844320aefed754)  (❕클릭 시 ERD로 이동)
 
 ### 📌 REST API 설계
-|CRUD|HTTP|URI|
-|-----|-----|-----|
-|단일 음식 조회|GET|/foods/{id}|
-|단일 음식 등록|POST|/foods|
+|CRUD| HTTP   | URI         |
+|-----|--------|-------------|
+|단일 음식 조회| GET    | /foods/{id} |
+|단일 음식 등록| POST   | /foods      |
+|단일 음식 수정| PATCH  | foods/{id}  |
+|단일 음식 삭제| DELETE | foods/{id}  |
+|전체 음식 조회| GET    | foods       |
   
 
 ### 📌 트러블슈팅
