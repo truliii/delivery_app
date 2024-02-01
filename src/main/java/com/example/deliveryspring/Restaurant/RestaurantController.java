@@ -24,13 +24,13 @@ public class RestaurantController {
 
     //카테고리별 식당 조회
     @RequestMapping(value = "/restaurants/category/{category}", method = RequestMethod.GET)
-    public List<RestaurantDto> findByCategory(@PathVariable(name = "category") int category) {
+    public List<RestaurantDto> findByCategory(@PathVariable("category") int category) {
         return restaurantService.findByCategory(category);
     }
 
     //단일 식당 조회
     @RequestMapping(value = "/restaurants/{id}", method = RequestMethod.GET)
-    public RestaurantDto findRestaurant(@PathVariable(name = "id") long id){
+    public RestaurantDto findRestaurant(@PathVariable("id") long id){
         return restaurantService.findRestaurant(id);
     }
 
@@ -41,14 +41,14 @@ public class RestaurantController {
     }
 
     //단일 식당 수정
-    @RequestMapping(value = "/restaurants/{id}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/restaurants", method = RequestMethod.PATCH)
     public void updateRestaurant(@RequestBody @Valid RestaurantDto restaurantDto){
         restaurantService.saveRestaurant(restaurantDto);
     }
 
     //단일 식당 삭제
     @RequestMapping(value = "/restaurants/{id}", method = RequestMethod.DELETE)
-    public void deleteRestaurant(@PathVariable(name = "id") long id){
+    public void deleteRestaurant(@PathVariable("id") long id){
         restaurantService.deleteRestaurant(id);
     }
 
