@@ -46,18 +46,18 @@
 [dbdiagram](https://dbdiagram.io/d/DeliveryApp-65a61908ac844320aefed754)  (❕클릭 시 ERD로 이동)
 
 ### 📌 REST API 설계
-| CRUD        | HTTP   | URI                              |
-|-------------|--------|----------------------------------|
-| 단일 음식 조회    | GET    | /foods/{id}                      |
-| 단일 음식 등록    | POST   | /foods                           |
-| 단일 음식 수정    | PATCH  | /foods/{id}                      |
-| 단일 음식 삭제    | DELETE | /foods/{id}                      |
-| 전체 음식 조회    | GET    | /foods                           |
-| 단일 식당 조회    | GET    | /restaurants/{id}                |
-| 단일 식당 등록    | POST   | /restaurants                     |
-| 단일 식당 수정    | PATCH | /restaurants/{id}                |
-| 단일 식당 삭제    | DELETE | /restaurants/{id}                |
-| 전체 식당 조회 | GET | /restaurants                     |
+| CRUD        | HTTP   | URI                       |
+|-------------|--------|---------------------------|
+| 단일 음식 조회    | GET    | /foods/{id}               |
+| 단일 음식 등록    | POST   | /foods                    |
+| 단일 음식 수정    | PATCH  | /foods                    |
+| 단일 음식 삭제    | DELETE | /foods/{id}               |
+| 전체 음식 조회    | GET    | /foods                    |
+| 단일 식당 조회    | GET    | /restaurants/{id}         |
+| 단일 식당 등록    | POST   | /restaurants              |
+| 단일 식당 수정    | PATCH | /restaurants              |
+| 단일 식당 삭제    | DELETE | /restaurants/{id}         |
+| 전체 식당 조회 | GET | /restaurants              |
 |카테고리별 식당 조회 | GET | /restaurants/category/{category} |
 
   
@@ -75,6 +75,9 @@
   <summary>Entity와 DTO 수정 후 500에러 발생</summary>
   두 객체 모두 기본생성자 추가하니 테스트 통과 → https://whereimsupposedtobe.tistory.com/12
 </details>
-
+<details>
+  <summary>에러: name for argument of type [int] not specified, and parameter name information not available via reflection.</summary>
+  @PathVariable에 name속성 작성을 안하는 바람에 발생한 문제로 추가 작성 후 테스트 통과
+</details>
   
 
