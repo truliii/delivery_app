@@ -19,13 +19,7 @@ public class FoodService {
     public List<FoodDto> findAllFood(){
         List<FoodDto> foodList = new ArrayList<>();
         for(Food f : foodRepository.findAll()){
-            FoodDto foodDto = FoodDto.builder()
-                    .foodId(f.getFoodId())
-                    .foodName(f.getFoodName())
-                    .price(f.getPrice())
-                    .foodDescription(f.getFoodDescription())
-                    .build();
-            foodList.add(foodDto);
+            foodList.add(f.toDto(f));
         }
         return foodList;
     }
@@ -33,35 +27,17 @@ public class FoodService {
     //단일 음식 조회
     public FoodDto findFood(long id){
         Food food = foodRepository.findById(id).get();
-        FoodDto foodDto = FoodDto.builder()
-                .foodId(food.getFoodId())
-                .foodName(food.getFoodName())
-                .price(food.getPrice())
-                .foodDescription(food.getFoodDescription())
-                .build();
-        return foodDto;
+        return food.toDto(food);
     }
 
     //단일 음식 등록
     public void saveFood(FoodDto foodDto){
-        Food food = Food.builder()
-                .foodId(foodDto.getFoodId())
-                .foodName(foodDto.getFoodName())
-                .price(foodDto.getPrice())
-                .foodDescription(foodDto.getFoodDescription())
-                .build();
-        foodRepository.save(food);
+        foodRepository.save(foodDto.toEntity(foodDto));
     }
 
     //단일 음식 수정
     public void updateFood(FoodDto foodDto){
-        Food food = Food.builder()
-                .foodId(foodDto.getFoodId())
-                .foodName(foodDto.getFoodName())
-                .price(foodDto.getPrice())
-                .foodDescription(foodDto.getFoodDescription())
-                .build();
-        foodRepository.save(food);
+        foodRepository.save(foodDto.toEntity(foodDto));
     }
 
     //단일 음식 삭제

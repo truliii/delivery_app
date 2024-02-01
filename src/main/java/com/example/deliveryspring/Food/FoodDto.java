@@ -1,5 +1,6 @@
 package com.example.deliveryspring.Food;
 
+import com.example.deliveryspring.Restaurant.Restaurant;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,4 +22,12 @@ public class FoodDto{
         this.foodDescription = foodDescription;
     }
 
+    public Food toEntity(FoodDto foodDto){
+        return Food.builder()
+                .foodId(foodDto.getFoodId())
+                .foodName(foodDto.getFoodName())
+                .price(foodDto.getPrice())
+                .foodDescription(foodDto.getFoodDescription())
+                .build();
+    }
 }

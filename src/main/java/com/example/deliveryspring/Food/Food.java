@@ -1,5 +1,6 @@
 package com.example.deliveryspring.Food;
 
+import com.example.deliveryspring.Restaurant.Restaurant;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class Food {
     @Column(nullable = false)
     private String foodDescription;
 
+
     @Builder
     public Food(long foodId, String foodName, int price, String foodDescription){
         this.foodId = foodId;
@@ -32,4 +34,12 @@ public class Food {
         this.foodDescription = foodDescription;
     }
 
+    public FoodDto toDto(Food food){
+        return FoodDto.builder()
+                .foodId(food.getFoodId())
+                .foodName(food.getFoodName())
+                .price(food.getPrice())
+                .foodDescription(food.getFoodDescription())
+                .build();
+    }
 }
