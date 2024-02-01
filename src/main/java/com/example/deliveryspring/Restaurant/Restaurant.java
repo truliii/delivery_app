@@ -39,4 +39,15 @@ public class Restaurant {
         this.phone = phone;
         this.restaurantDescription = restaurantDescription;
     }
+
+    public RestaurantDto toDto(Restaurant restaurant){
+        return RestaurantDto.builder()
+                .restaurantId(restaurant.getRestaurantId())
+                .restaurantName(restaurant.getRestaurantName())
+                .category(restaurant.getCategory())
+                .address(restaurant.getAddress())
+                .phone(restaurant.getPhone())
+                .restaurantDescription(restaurant.getRestaurantDescription())
+                .build();
+    }
 }

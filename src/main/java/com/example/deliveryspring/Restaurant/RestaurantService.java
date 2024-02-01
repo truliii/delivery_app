@@ -20,15 +20,7 @@ public class RestaurantService {
     public List<RestaurantDto> findAllRestaurant(){
         List<RestaurantDto> list = new ArrayList<>();
         for(Restaurant r : restaurantRepository.findAll()){
-            RestaurantDto restaurantDto = RestaurantDto.builder()
-                    .restaurantId(r.getRestaurantId())
-                    .restaurantName(r.getRestaurantName())
-                    .category(r.getCategory())
-                    .address(r.getAddress())
-                    .phone(r.getPhone())
-                    .restaurantDescription(r.getRestaurantDescription())
-                    .build();
-            list.add(restaurantDto);
+            list.add(r.toDto(r));
         }
 
         return list;
@@ -38,47 +30,20 @@ public class RestaurantService {
     public List<RestaurantDto> findByCategory(int category){
         List<RestaurantDto> list = new ArrayList<>();
         for(Restaurant r : restaurantRepository.findByCategory(category)){
-            RestaurantDto restaurantDto = RestaurantDto.builder()
-                    .restaurantId(r.getRestaurantId())
-                    .restaurantName(r.getRestaurantName())
-                    .category(r.getCategory())
-                    .address(r.getAddress())
-                    .phone(r.getPhone())
-                    .restaurantDescription(r.getRestaurantDescription())
-                    .build();
-            list.add(restaurantDto);
+            list.add(r.toDto(r));
         }
-
         return list;
     }
 
     //단일 식당 조회
     public RestaurantDto findRestaurant(long id){
         Restaurant restaurant = restaurantRepository.findById(id).get();
-        RestaurantDto restaurantDto = RestaurantDto.builder()
-                .restaurantId(restaurant.getRestaurantId())
-                .restaurantName(restaurant.getRestaurantName())
-                .category(restaurant.getCategory())
-                .address(restaurant.getAddress())
-                .phone(restaurant.getPhone())
-                .restaurantDescription(restaurant.getRestaurantDescription())
-                .build();
-
-        return restaurantDto;
+        return restaurant.toDto(restaurant);
     }
 
     //단일 식당 등록 및 수정
     public void saveRestaurant(RestaurantDto restaurantDto){
-        Restaurant restaurant = Restaurant.builder()
-                .restaurantId(restaurantDto.getRestaurantId())
-                .restaurantName(restaurantDto.getRestaurantName())
-                .category(restaurantDto.getCategory())
-                .address(restaurantDto.getAddress())
-                .phone(restaurantDto.getPhone())
-                .restaurantDescription(restaurantDto.getRestaurantDescription())
-                .build();
-
-        restaurantRepository.save(restaurant);
+        restaurantRepository.save(restaurantDto.toEntity(restaurantDto));
     }
 
     //단일 식당 삭제

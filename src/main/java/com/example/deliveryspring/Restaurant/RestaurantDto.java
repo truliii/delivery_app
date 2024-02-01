@@ -37,4 +37,15 @@ public class RestaurantDto {
         this.restaurantDescription = restaurantDescription;
     }
 
+    public Restaurant toEntity(RestaurantDto restaurantDto){
+        return Restaurant.builder()
+                .restaurantId(restaurantDto.getRestaurantId())
+                .restaurantName(restaurantDto.getRestaurantName())
+                .category(restaurantDto.getCategory())
+                .address(restaurantDto.getAddress())
+                .phone(restaurantDto.getPhone())
+                .restaurantDescription(restaurantDto.getRestaurantDescription())
+                .build();
+    }
+
 }
