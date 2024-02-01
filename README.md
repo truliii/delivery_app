@@ -46,13 +46,20 @@
 [dbdiagram](https://dbdiagram.io/d/DeliveryApp-65a61908ac844320aefed754)  (❕클릭 시 ERD로 이동)
 
 ### 📌 REST API 설계
-|CRUD| HTTP   | URI         |
-|-----|--------|-------------|
-|단일 음식 조회| GET    | /foods/{id} |
-|단일 음식 등록| POST   | /foods      |
-|단일 음식 수정| PATCH  | foods/{id}  |
-|단일 음식 삭제| DELETE | foods/{id}  |
-|전체 음식 조회| GET    | foods       |
+| CRUD        | HTTP   | URI                              |
+|-------------|--------|----------------------------------|
+| 단일 음식 조회    | GET    | /foods/{id}                      |
+| 단일 음식 등록    | POST   | /foods                           |
+| 단일 음식 수정    | PATCH  | /foods/{id}                      |
+| 단일 음식 삭제    | DELETE | /foods/{id}                      |
+| 전체 음식 조회    | GET    | /foods                           |
+| 단일 식당 조회    | GET    | /restaurants/{id}                |
+| 단일 식당 등록    | POST   | /restaurants                     |
+| 단일 식당 수정    | PATCH | /restaurants/{id}                |
+| 단일 식당 삭제    | DELETE | /restaurants/{id}                |
+| 전체 식당 조회 | GET | /restaurants                     |
+|카테고리별 식당 조회 | GET | /restaurants/category/{category} |
+
   
 
 ### 📌 트러블슈팅
@@ -63,6 +70,10 @@
 <details>
   <summary>GET으로 테스트 시 406에러 발생</summary>
   Food클래스에 getter를 추가하니 해결 → 해당 내용은 추가 공부가 필요
+</details>
+<details>
+  <summary>Entity와 DTO 수정 후 500에러 발생</summary>
+  두 객체 모두 기본생성자 추가하니 테스트 통과 → https://whereimsupposedtobe.tistory.com/12
 </details>
 
   
