@@ -13,13 +13,15 @@ public class FoodDto{
     private String foodName;
     private int price;
     private String foodDescription;
+    private Restaurant restaurant;
 
     @Builder
-    public FoodDto(long foodId, String foodName, int price, String foodDescription){
+    public FoodDto(long foodId, String foodName, int price, String foodDescription, Restaurant restaurant){
         this.foodId = foodId;
         this.foodName = foodName;
         this.price = price;
         this.foodDescription = foodDescription;
+        this.restaurant = restaurant;
     }
 
     public Food toEntity(FoodDto foodDto){
@@ -28,6 +30,7 @@ public class FoodDto{
                 .foodName(foodDto.getFoodName())
                 .price(foodDto.getPrice())
                 .foodDescription(foodDto.getFoodDescription())
+                .restaurant(foodDto.getRestaurant())
                 .build();
     }
 }

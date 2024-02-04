@@ -25,13 +25,17 @@ public class Food {
     @Column(nullable = false)
     private String foodDescription;
 
+    @ManyToOne //N:1관계 매핑
+    @JoinColumn(name="restaurant_id") //외래키 정의
+    Restaurant restaurant;
 
     @Builder
-    public Food(long foodId, String foodName, int price, String foodDescription){
+    public Food(long foodId, String foodName, int price, String foodDescription, Restaurant restaurant){
         this.foodId = foodId;
         this.foodName = foodName;
         this.price = price;
         this.foodDescription = foodDescription;
+        this.restaurant = restaurant;
     }
 
     public FoodDto toDto(Food food){
@@ -40,6 +44,8 @@ public class Food {
                 .foodName(food.getFoodName())
                 .price(food.getPrice())
                 .foodDescription(food.getFoodDescription())
+                .restaurant(food.getRestaurant())
                 .build();
     }
 }
+

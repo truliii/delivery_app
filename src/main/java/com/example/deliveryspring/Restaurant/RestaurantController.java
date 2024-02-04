@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 public class RestaurantController {
 
-    RestaurantService restaurantService;
+    private RestaurantService restaurantService;
 
     @Autowired
     RestaurantController(RestaurantService restaurantService){
