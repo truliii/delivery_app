@@ -46,6 +46,7 @@
 [dbdiagram](https://dbdiagram.io/d/DeliveryApp-65a61908ac844320aefed754)  (❕클릭 시 ERD로 이동)
 
 ### 📌 REST API 설계
+##### Food
 | CRUD        | HTTP   | URI                       |
 |-------------|--------|---------------------------|
 | 단일 음식 조회    | GET    | /foods/{id}               |
@@ -53,6 +54,10 @@
 | 단일 음식 수정    | PATCH  | /foods                    |
 | 단일 음식 삭제    | DELETE | /foods/{id}               |
 | 전체 음식 조회    | GET    | /foods                    |
+
+##### Restaurant
+|CRUD| HTTP | URI|
+|----|------|----|
 | 단일 식당 조회    | GET    | /restaurants/{id}         |
 | 단일 식당 등록    | POST   | /restaurants              |
 | 단일 식당 수정    | PATCH | /restaurants              |
