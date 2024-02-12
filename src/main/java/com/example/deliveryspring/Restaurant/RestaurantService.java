@@ -18,21 +18,21 @@ public class RestaurantService {
 
     //전체 식당 조회
     public List<RestaurantDto> findAllRestaurant(){
-        List<RestaurantDto> list = new ArrayList<>();
-        for(Restaurant r : restaurantRepository.findAll()){
-            list.add(r.toDto(r));
+        List<RestaurantDto> restaurantList = new ArrayList<>();
+        for(Restaurant restaurant : restaurantRepository.findAll()){
+            restaurantList.add(restaurant.toDto(restaurant));
         }
 
-        return list;
+        return restaurantList;
     }
 
     //카테고리별 식당 조회
     public List<RestaurantDto> findByCategory(int category){
-        List<RestaurantDto> list = new ArrayList<>();
-        for(Restaurant r : restaurantRepository.findByCategory(category)){
-            list.add(r.toDto(r));
+        List<RestaurantDto> restaurantList = new ArrayList<>();
+        for(Restaurant restaurant : restaurantRepository.findByCategory(category)){
+            restaurantList.add(restaurant.toDto(restaurant));
         }
-        return list;
+        return restaurantList;
     }
 
     //단일 식당 조회

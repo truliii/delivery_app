@@ -19,7 +19,7 @@ public class Restaurant {
     private String restaurantName;
 
     @Column
-    private int category;
+    private RestaurantCategory category;
 
     @Column
     private String address;
@@ -31,7 +31,7 @@ public class Restaurant {
     private String restaurantDescription;
 
     @Builder
-    public Restaurant(long restaurantId, String restaurantName, int category, String address, String phone, String restaurantDescription){
+    public Restaurant(long restaurantId, String restaurantName, RestaurantCategory category, String address, String phone, String restaurantDescription){
         this.restaurantId = restaurantId;
         this.restaurantName = restaurantName;
         this.category = category;

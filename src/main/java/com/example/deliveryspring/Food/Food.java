@@ -14,10 +14,10 @@ public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private long foodId;
+    private long id;
 
     @Column(nullable = false, length = 50)
-    private String foodName;
+    private String name;
 
     @Column(nullable = false)
     private int price;
@@ -30,9 +30,9 @@ public class Food {
     Restaurant restaurant;
 
     @Builder
-    public Food(long foodId, String foodName, int price, String foodDescription, Restaurant restaurant){
-        this.foodId = foodId;
-        this.foodName = foodName;
+    public Food(long id, String name, int price, String foodDescription, Restaurant restaurant){
+        this.id = id;
+        this.name = name;
         this.price = price;
         this.foodDescription = foodDescription;
         this.restaurant = restaurant;
@@ -40,8 +40,8 @@ public class Food {
 
     public FoodDto toDto(Food food){
         return FoodDto.builder()
-                .foodId(food.getFoodId())
-                .foodName(food.getFoodName())
+                .id(food.getId())
+                .name(food.getName())
                 .price(food.getPrice())
                 .foodDescription(food.getFoodDescription())
                 .restaurant(food.getRestaurant())

@@ -9,16 +9,16 @@ import lombok.NoArgsConstructor;
 @Getter
 public class FoodDto{
 
-    private long foodId;
-    private String foodName;
+    private long id;
+    private String name;
     private int price;
     private String foodDescription;
     private Restaurant restaurant;
 
     @Builder
-    public FoodDto(long foodId, String foodName, int price, String foodDescription, Restaurant restaurant){
-        this.foodId = foodId;
-        this.foodName = foodName;
+    public FoodDto(long id, String name, int price, String foodDescription, Restaurant restaurant){
+        this.id = id;
+        this.name = name;
         this.price = price;
         this.foodDescription = foodDescription;
         this.restaurant = restaurant;
@@ -26,8 +26,8 @@ public class FoodDto{
 
     public Food toEntity(FoodDto foodDto){
         return Food.builder()
-                .foodId(foodDto.getFoodId())
-                .foodName(foodDto.getFoodName())
+                .id(foodDto.getId())
+                .name(foodDto.getName())
                 .price(foodDto.getPrice())
                 .foodDescription(foodDto.getFoodDescription())
                 .restaurant(foodDto.getRestaurant())

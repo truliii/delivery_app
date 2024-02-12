@@ -18,8 +18,8 @@ public class FoodService {
     //전체 음식 조회
     public List<FoodDto> findAllFood(){
         List<FoodDto> foodList = new ArrayList<>();
-        for(Food f : foodRepository.findAll()){
-            foodList.add(f.toDto(f));
+        for(Food food : foodRepository.findAll()){
+            foodList.add(food.toDto(food));
         }
         return foodList;
     }

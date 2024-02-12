@@ -17,7 +17,7 @@ public class RestaurantDto {
     private String restaurantName;
 
     @Positive //양수만
-    private int category;
+    private RestaurantCategory category;
 
     @NotBlank
     private String address;
@@ -28,7 +28,7 @@ public class RestaurantDto {
     private String restaurantDescription;
 
     @Builder
-    public RestaurantDto(long restaurantId, String restaurantName, int category, String address, String phone, String restaurantDescription){
+    public RestaurantDto(long restaurantId, String restaurantName, RestaurantCategory category, String address, String phone, String restaurantDescription){
         this.restaurantId = restaurantId;
         this.restaurantName = restaurantName;
         this.category = category;
