@@ -14,7 +14,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     List<Restaurant> findAll();
 
     //카테고리별 음식 조회
-    List<Restaurant> findByCategory(int category);
+    List<Restaurant> findByCategory(RestaurantCategory category);
 
     //단일 음식 조회
     @Override

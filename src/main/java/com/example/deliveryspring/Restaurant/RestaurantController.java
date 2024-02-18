@@ -24,7 +24,7 @@ public class RestaurantController {
 
     //카테고리별 식당 조회
     @RequestMapping(value = "/restaurants/category/{category}", method = RequestMethod.GET)
-    public List<RestaurantDto> findByCategory(@PathVariable("category") int category) {
+    public List<RestaurantDto> findByCategory(@PathVariable("category") RestaurantCategory category) {
         return restaurantService.findByCategory(category);
     }
 
