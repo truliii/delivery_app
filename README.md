@@ -65,7 +65,14 @@
 | 전체 식당 조회 | GET | /restaurants              |
 |카테고리별 식당 조회 | GET | /restaurants/category/{category} |
 
-  
+
+##### Order
+| CRUD             | HTTP | URI | 
+|------------------|------|-----|
+| 단일 주문 조회         | GET | /orders/{id}|
+| 단일 주문 등록         | POST | /orders|
+| 단일 주문 수정(주문상태수정) | PATCH | /orders/{id}|
+| user별 전체 주문 조회   | GET | /orders/user/{user}|
 
 ### 📌 트러블슈팅
 <details>
